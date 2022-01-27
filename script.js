@@ -62,3 +62,47 @@ let click = (color) => {
     },250);
 }
 
+//funcao que retorna a cor
+let createColorElement = (color) => {
+    if(color == 0) {
+        return green;
+    } else if(color == 1) {
+        return red;
+    } else if (color == 2) {
+        return yellow;
+    } else if (color == 3) {
+        return blue;
+    }
+}
+
+//funcao para proximo nivel do jogo
+let nextLevel = () => {
+    score++;
+    shuffleOrder();
+}
+
+//funcao para game over
+let gameOver = () => {
+    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    order = [];
+    clickedOrder = [];
+
+    playGame();
+}
+
+//funcao de inicio do jogo
+let playGame = () => {
+    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
+    score = 0;
+
+    nextLevel();
+}
+
+//eventos de clique para as cores
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
+
+//inicio do jogo
+playGame();
