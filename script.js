@@ -37,3 +37,28 @@ let lightColor = (element, number) => {
     });
 }
 
+//checa se os botoes clicados sao os mesmos da ordem gerada no jogo
+let checkOrder = () => {
+    for(let i in clickedOrder) {
+        if(clickedOrder[i] != order[i]) {
+            gameOver();
+            break;
+        }
+    }
+    if(clickedOrder.length == order.length) {
+        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
+        nextLevel();
+    }
+}
+
+//funcao para o clique do usuario
+let click = (color) => {
+    clickedOrder[clickedOrder.length] = color;
+    createColorElement(color).classList.add('selected');
+
+    setTimeout(() => {
+        createColorElement(color).classList.remove('selected');
+        checkOrder();
+    },250);
+}
+
