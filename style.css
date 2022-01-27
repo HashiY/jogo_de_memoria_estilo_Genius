@@ -49,5 +49,5 @@ body {
 }
 /*Quando for selecionada fica mais claro */
 .selected {
-    opacity: 0.8;
+    opacity: 0.6;
 }

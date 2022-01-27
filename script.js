@@ -20,7 +20,20 @@ let shuffleOrder = () => {
     clickedOrder = [];
 
     for(let i in order) {  
-        let elementColor = createColorElement(order[i]);
-        lightColor(elementColor, Number(i) + 1);
+        let elementColor = createColorElement(order[i]); // guarda elemento i q e o indice do array
+        lightColor(elementColor, Number(i) + 1); //cor, numero para existir na lista de cores
     }
 }
+
+//acende a proxima cor
+let lightColor = (element, number) => {
+    number = number * 500;
+    //funcao q executa um codigo dentro de um tempo (nunber)
+    setTimeout(() => {
+        element.classList.add('selected');
+    }, number - 250);
+    setTimeout(() => {
+        element.classList.remove('selected');
+    });
+}
+
